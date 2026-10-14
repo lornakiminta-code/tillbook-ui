@@ -1,0 +1,41 @@
+{
+  "name": "tillbook",
+  "version": "1.0.0",
+  "description": "TillBook: stock and sales app for small shops",
+  "main": "main.js",
+  "author": {
+    "name": "TillBook",
+    "email": "tillbook@example.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish never"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.tillbook.app",
+    "productName": "TillBook",
+    "files": [
+      "main.js",
+      "*.html",
+      "style.css"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "TillBook-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Office",
+      "artifactName": "TillBook-${version}.${ext}"
+    }
+  }
+}
