@@ -21,8 +21,10 @@
     "productName": "TillBook",
     "files": [
       "main.js",
-      "*.html",
-      "style.css"
+      "pages/**/*",
+      "css/**/*",
+      "js/**/*",
+      "assets/**/*"
     ],
     "win": {
       "target": "nsis",

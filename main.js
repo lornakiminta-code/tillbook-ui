@@ -9,20 +9,17 @@ function createWindow() {
     title: 'TillBook',
     autoHideMenuBar: true
   });
-  // Load the home page from the same folder as this file.
-  win.loadFile(path.join(__dirname, 'index.html'));
+  // The home page now lives in the pages folder.
+  win.loadFile(path.join(__dirname, 'pages', 'index.html'));
 }
 
-// Create the window once Electron has finished starting.
 app.whenReady().then(() => {
   createWindow();
-  // On macOS, re-open a window when the dock icon is clicked.
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
 
-// Quit the app when all windows are closed (except on macOS).
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
